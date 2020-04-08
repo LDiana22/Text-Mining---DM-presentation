@@ -1,0 +1,123 @@
+
+\mode<presentation>
+
+\usepackage{calc}
+
+\newlength{\headerfontheight}  \setlength{\headerfontheight}{1ex}
+\newlength{\headerleftheight}	\setlength{\headerleftheight}{0.054545\paperheight}
+\newlength{\headerleftlength}	\setlength{\headerleftlength}{0.3863\paperwidth}
+\newlength{\headerleftdp}	\setlength{\headerleftdp}{0.5\headerleftheight-0.5\headerfontheight}
+\newlength{\headerleftht}	\setlength{\headerleftht}{0.5\headerleftheight+0.5\headerfontheight}
+\newlength{\headerrightheight}	\setlength{\headerrightheight}{0.33333\headerleftheight}
+\newlength{\headerrightspace}	\setlength{\headerrightspace}{\headerleftheight-\headerleftheight}
+\newlength{\headerrightlength} \setlength{\headerrightlength}{\paperwidth-\headerleftlength}
+
+
+\newlength{\footermargin}			\setlength{\footermargin}{0.030137\paperwidth}
+\newlength{\footerfont}				\setlength{\footerfont}{0.018182\paperheight}
+\newlength{\footerlogoheight}		\setlength{\footerlogoheight}{0.065455\paperheight}
+\newlength{\footerhigherheight} 	\setlength{\footerhigherheight}{0.12727\paperheight}
+\newlength{\footerhigherleftdp}	\setlength{\footerhigherleftdp}{0.045455\paperheight}
+\newlength{\footerhigherleftht} 	\setlength{\footerhigherleftht}{\footerhigherheight-\footerhigherleftdp}
+\newlength{\footerhigherrightdp}	\setlength{\footerhigherrightdp}{0.5\footerhigherheight-0.5\footerlogoheight}
+\newlength{\footerhigherrightht} 	\setlength{\footerhigherrightht}{\footerhigherheight-\footerhigherrightdp}
+\newlength{\footerlowerheight} 	\setlength{\footerlowerheight}{0.027273\paperheight}
+
+%color definition
+\definecolor{white}{HTML}{FFFFFF}
+\definecolor{fgpscol}{HTML}{35343B}
+\definecolor{engOrgange}{HTML}{DF4526}
+\definecolor{warmgrey}{HTML}{ACA39A}
+\definecolor{garnet}{HTML}{8F001A}
+
+\setbeamercolor*{university head}{fg=white,bg=garnet}
+\setbeamercolor*{university foot}{fg=white,bg=black!90!white}
+\setbeamercolor*{university footll}{fg=white,bg=warmgrey}
+\setbeamercolor*{university footlr}{fg=white,bg=garnet}
+
+\setbeamerfont*{university font}{size=\fontsize{2}{11}\selectfont}
+\setbeamerfont*{uofooterfont}{size=\scriptsize}
+\setbeamerfont*{uoheaderfont}{size=\tiny}
+\setbeamerfont*{author}{size=\small}
+\setbeamerfont*{date}{size=\small}
+
+\setbeamercolor{footnote mark}{fg=black}
+\setbeamercolor{footnote}{fg=black}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+\setbeamerfont{footnote mark}{size=\tiny}
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamerfont{bibliography entry author}{size=\tiny}
+\setbeamerfont{bibliography entry title}{size=\tiny}
+\setbeamerfont{bibliography entry note}{size=\tiny}
+
+
+\setbeamercolor*{other in head/foot}{fg=white,bg=garnet}
+\setbeamercolor*{section in toc}{fg=black}
+
+\defbeamertemplate*{headline}{uottawatheme}
+{
+	\mbox{%
+		%\raisebox{-0.5\headerleftheight+\headerleftdp}{%		
+		\begin{beamercolorbox}[wd=\headerleftlength,ht=\headerleftht,dp=\headerleftdp,center]{university head}%
+			\usebeamerfont{uoheaderfont}\selectfont \textbf{Universit\'e d'Ottawa \textbar University of Ottawa}
+		\end{beamercolorbox}%}%  
+		\raisebox{\headerleftht-\headerrightheight}{%		
+			\begin{beamercolorbox}[wd=.666666\paperwidth,ht=\headerrightheight,dp=0ex]{university head}%
+    			\usebeamerfont{university font}
+			\end{beamercolorbox}
+		}
+	}
+}
+
+\defbeamertemplate*{footline}{uottawatheme}{%
+	\leavevmode%	
+	\vbox{%
+  		\hbox{%
+  		\raisebox{-0.5\footerhigherheight+\footerhigherleftdp}{%
+  			\begin{beamercolorbox}[wd=.5\paperwidth,ht=\footerhigherleftht,dp=\footerhigherleftdp,left]{university foot}%
+				\usebeamerfont{uofooterfont}\hspace*{\footermargin}\textbf{uOttawa.ca}%
+			\end{beamercolorbox}}%
+		\raisebox{-0.5\footerhigherheight+\footerhigherrightdp}{%		
+			\begin{beamercolorbox}[wd=.5\paperwidth,ht=\footerhigherrightht,dp=\footerhigherrightdp,right]{university foot}%
+				\usebeamerfont{university font} \includegraphics[keepaspectratio=true, height=\footerlogoheight]{Figures/uottawa_hor_white}\hspace*{\footermargin}%
+			\end{beamercolorbox}}}%
+  		\hbox{%
+  		  	\begin{beamercolorbox}[wd=.75\paperwidth,ht=0.5\footerlowerheight,dp=0.5\footerlowerheight,left]{university footll}%
+				\usebeamerfont{uofooterfont}%
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=.25\paperwidth,ht=0.5\footerlowerheight,dp=0.5\footerlowerheight,right]{university footlr}%
+				\usebeamerfont{uofooterfont} \raisebox{-0.25\footerhigherheight+0.5\footerhigherleftdp}{\tiny \insertframenumber/\inserttotalframenumber}
+			\end{beamercolorbox}}%
+  	}%
+}
+
+\defbeamertemplate*{title page}{customized}[1][]
+{
+\vbox{
+		\hspace*{0.10\paperwidth}
+	\vbox{
+		\vspace*{1ex}	
+		\hbox{
+			\begin{beamercolorbox}[wd=\facbarwidth, ht=4\titleheight,left]{facbar}%
+			\vfill%
+			\end{beamercolorbox}%
+			\vbox{%
+				\begin{beamercolorbox}[wd=.80\paperwidth, ht=4\titleheight, left]{frametitle}		
+					\vbox{\vspace*{0.25em}%
+					\parbox{0.95\textwidth}{%
+						\usebeamerfont{frametitlefont}\inserttitle\hspace*{\fill}\\%
+						\hspace*{\fill}\\%
+						\usebeamerfont{author}\insertauthor\hspace*{\fill}\\%
+						\usebeamerfont{date}\insertdate}%
+					\vspace*{1cm}}%
+				\end{beamercolorbox}%
+			}%
+		}%
+	}%
+	}%
+}
+
+\mode
+<all>

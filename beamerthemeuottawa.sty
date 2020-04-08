@@ -1,0 +1,83 @@
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ProcessOptionsBeamer
+
+\usepackage{ifthen}
+\useoutertheme{uottawa}
+
+%color definition
+\definecolor{white}{HTML}{FFFFFF}
+\definecolor{warmgrey}{HTML}{ACA39A}
+\definecolor{garnet}{HTML}{8F001A}
+
+\newlength{\facbarwidth} 	\setlength{\facbarwidth}{0.01\paperwidth}
+\newlength{\titleheight} 	\setlength{\titleheight}{0.1\paperheight}
+
+\setbeamercolor{frametitle}{fg=white, bg=black!90!white} % Beamer manual, section 16.3
+\setbeamercolor{facbar}{fg=white, bg=garnet}
+
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{itemize subitem}{fg=black}
+
+\setbeamerfont{frametitlefont}{size=\normalsize, series=\bfseries}
+\setbeamerfont{framesubtitlefont}{size=\small, series=\bfseries}
+
+%\setbeamertemplate{frametitle}{%
+%	\ifthenelse{\equal{0}{1}}{
+%		walala
+%	}{
+%	}		
+%}
+
+\setbeamertemplate{frametitle}{%
+	\vbox{
+		\hspace*{0.15\paperwidth}
+	\vbox{
+		\vspace*{1ex}	
+		\hbox{
+			\begin{beamercolorbox}[wd=\facbarwidth, ht=\titleheight,left]{facbar}%
+			\vfill%
+			\end{beamercolorbox}%
+			\vbox{%
+				\begin{beamercolorbox}[wd=.75\paperwidth, ht=\titleheight, left]{frametitle}		
+					\vbox{\vspace*{0.25em}%
+					\parbox{\textwidth}{
+						\usebeamerfont{frametitlefont}\insertsection
+						\ifx\insertsubsection\empty 
+						\else
+						\;-\;\insertsubsection
+						\fi
+						\hspace*{\fill}\\
+						\usebeamerfont{framesubtitlefont}\hspace*{1em} \insertframetitle}%
+					\vspace*{0.25em}}%
+				\end{beamercolorbox}%
+			}%
+		}%
+	}%
+	}%
+}
+
+
+%\setbeamertemplate{frametitle}{%
+%	\vbox{%
+%		\centering
+%		\vspace*{1ex}
+%		\begin{beamercolorbox}[wd=.5\paperwidth,left]{frametitle}
+%			\vbox{%			
+%%			\vspace*{1ex}%
+%			\hbox{\usebeamerfont{frametitlefont}\insertsection}%	
+%			\hbox{\usebeamerfont{framesubtitlefont}\insertframetitle}%
+%%			\vspace*{1ex}%
+%			}
+%		\end{beamercolorbox}
+%	}
+%}
+
+
+\mode
+<all>
